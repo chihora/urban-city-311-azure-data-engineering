@@ -1,3 +1,5 @@
 .env 
 environ 
-data
+data 
+.astro 
+.airflow_settings.yml
