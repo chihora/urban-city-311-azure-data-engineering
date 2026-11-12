@@ -1,0 +1,55 @@
+﻿{
+  "activities": [
+    {
+      "additionalProperties": null,
+      "dependsOn": [],
+      "description": null,
+      "linkedServiceName": {
+        "parameters": null,
+        "referenceName": "urban_city_postgresql_ls",
+        "type": "LinkedServiceReference"
+      },
+      "logSettings": null,
+      "name": "Validate311DataQuality",
+      "onInactiveMarkAs": null,
+      "policy": {
+        "additionalProperties": null,
+        "retry": 0,
+        "retryIntervalInSeconds": 30,
+        "secureInput": false,
+        "secureOutput": false,
+        "timeout": "0.12:00:00"
+      },
+      "returnMultistatementResult": null,
+      "scriptBlockExecutionTimeout": "02:00:00",
+      "scripts": [
+        {
+          "parameters": null,
+          "text": "\nSELECT\n    COUNT(*) AS total_records,\n\n    COUNT(*) FILTER (\n        WHERE created_date IS NULL\n           OR BTRIM(created_date::text) = ''\n    ) AS missing_created_date,\n\n    COUNT(*) FILTER (\n        WHERE problem IS NULL\n           OR BTRIM(problem::text) = ''\n    ) AS missing_problem,\n\n    COUNT(*) FILTER (\n        WHERE city IS NULL\n           OR BTRIM(city::text) = ''\n    ) AS missing_city,\n\n    COUNT(*) FILTER (\n        WHERE closed_date IS NULL\n           OR BTRIM(closed_date::text) = ''\n    ) AS missing_closed_date,\n\n    COUNT(*) FILTER (\n        WHERE latitude IS NULL\n           OR longitude IS NULL\n    ) AS missing_coordinates,\n\n    COUNT(*) FILTER (\n        WHERE latitude NOT BETWEEN -90 AND 90\n           OR longitude NOT BETWEEN -180 AND 180\n    ) AS invalid_coordinates\n\nFROM public.urban_service_requests;\n",
+          "type": "Query"
+        }
+      ],
+      "state": null,
+      "type": "Script",
+      "userProperties": []
+    }
+  ],
+  "additionalProperties": null,
+  "annotations": [],
+  "concurrency": null,
+  "description": null,
+  "etag": "4a00aa86-0000-0500-0000-6af61a680000",
+  "folder": null,
+  "id": "/subscriptions/b241d6ac-1159-406d-8277-e5162a46ed49/resourceGroups/service_requests/providers/Microsoft.DataFactory/factories/urbancity311factory-fkn-2026/pipelines/pl_validate_urban_city_311",
+  "name": "pl_validate_urban_city_311",
+  "parameters": null,
+  "policy": {
+    "elapsedTimeMetric": {
+      "duration": null
+    }
+  },
+  "resourceGroup": "service_requests",
+  "runDimensions": null,
+  "type": "Microsoft.DataFactory/factories/pipelines",
+  "variables": null
+}

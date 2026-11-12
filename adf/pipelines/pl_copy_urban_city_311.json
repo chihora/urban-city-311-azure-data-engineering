@@ -1,0 +1,118 @@
+﻿{
+  "activities": [
+    {
+      "additionalProperties": null,
+      "dataIntegrationUnits": null,
+      "dependsOn": [],
+      "description": null,
+      "enableSkipIncompatibleRow": null,
+      "enableStaging": false,
+      "inputs": [
+        {
+          "parameters": {},
+          "referenceName": "urban_city_parquet_ds",
+          "type": "DatasetReference"
+        }
+      ],
+      "linkedServiceName": null,
+      "logSettings": null,
+      "logStorageSettings": null,
+      "name": "Copy data1",
+      "onInactiveMarkAs": null,
+      "outputs": [
+        {
+          "parameters": {},
+          "referenceName": "urban_city_postgresql_ds",
+          "type": "DatasetReference"
+        }
+      ],
+      "parallelCopies": null,
+      "policy": {
+        "additionalProperties": null,
+        "retry": 0,
+        "retryIntervalInSeconds": 30,
+        "secureInput": false,
+        "secureOutput": false,
+        "timeout": "0.12:00:00"
+      },
+      "preserve": null,
+      "preserveRules": null,
+      "redirectIncompatibleRowSettings": null,
+      "sink": {
+        "additionalProperties": null,
+        "disableMetricsCollection": null,
+        "maxConcurrentConnections": null,
+        "preCopyScript": null,
+        "sinkRetryCount": null,
+        "sinkRetryWait": null,
+        "type": "AzurePostgreSqlSink",
+        "upsertSettings": null,
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:30:00",
+        "writeMethod": "CopyCommand"
+      },
+      "skipErrorFile": null,
+      "source": {
+        "additionalColumns": null,
+        "additionalProperties": null,
+        "disableMetricsCollection": null,
+        "formatSettings": {
+          "additionalProperties": null,
+          "compressionProperties": null,
+          "type": "ParquetReadSettings"
+        },
+        "maxConcurrentConnections": null,
+        "sourceRetryCount": null,
+        "sourceRetryWait": null,
+        "storeSettings": {
+          "additionalProperties": null,
+          "deleteFilesAfterCompletion": null,
+          "disableMetricsCollection": null,
+          "enablePartitionDiscovery": false,
+          "fileListPath": null,
+          "maxConcurrentConnections": null,
+          "modifiedDatetimeEnd": null,
+          "modifiedDatetimeStart": null,
+          "partitionRootPath": null,
+          "prefix": null,
+          "recursive": true,
+          "type": "AzureBlobStorageReadSettings",
+          "wildcardFileName": null,
+          "wildcardFolderPath": null
+        },
+        "type": "ParquetSource"
+      },
+      "stagingSettings": null,
+      "state": null,
+      "translator": {
+        "type": "TabularTranslator",
+        "typeConversion": true,
+        "typeConversionSettings": {
+          "allowDataTruncation": true,
+          "treatBooleanAsNumber": false
+        }
+      },
+      "type": "Copy",
+      "userProperties": [],
+      "validateDataConsistency": null
+    }
+  ],
+  "additionalProperties": null,
+  "annotations": [],
+  "concurrency": null,
+  "description": null,
+  "etag": "48008af6-0000-0500-0000-6af612ba0000",
+  "folder": null,
+  "id": "/subscriptions/b241d6ac-1159-406d-8277-e5162a46ed49/resourceGroups/service_requests/providers/Microsoft.DataFactory/factories/urbancity311factory-fkn-2026/pipelines/pl_copy_urban_city_311",
+  "name": "pl_copy_urban_city_311",
+  "parameters": null,
+  "policy": {
+    "elapsedTimeMetric": {
+      "duration": null
+    }
+  },
+  "resourceGroup": "service_requests",
+  "runDimensions": null,
+  "type": "Microsoft.DataFactory/factories/pipelines",
+  "variables": null
+}

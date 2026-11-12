@@ -1,8 +1,42 @@
-astro
+
+# Git and editor files
 .git
+.gitignore
+.vscode/
+
+# Environment and credentials
 .env
+.env.*
+credentials.sh
+credentials.txt
+
+# Python environments and caches
+environ/
+.venv/
+__pycache__/
+*.pyc
+
+# Airflow local files
 airflow_settings.yaml
-logs/
-.venv
+airflow_settings.yml
+.airflow_settings.yml
 airflow.db
 airflow.cfg
+logs/
+
+# Local development files
+astro/
+
+# Terraform
+.terraform/
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+*.tfplan
+
+# Exclude Terraform dependency lock file from Docker context
+*.hcl
+
+

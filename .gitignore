@@ -1,5 +1,72 @@
-.env 
-environ 
-data 
-.astro 
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+credentials.sh
+credentials.txt
+
+# Python virtual environments
+environ/
+.venv/
+__pycache__/
+*.pyc
+
+# Local project data
+data/
+
+# Airflow local files
 .airflow_settings.yml
+airflow_settings.yaml
+airflow.db
+airflow.cfg
+logs/
+
+# Local plugins
+plugins/
+
+# Terraform provider downloads
+**/.terraform/*
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Terraform sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Terraform CLI configuration and overrides
+.terraformrc
+terraform.rc
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Keep Terraform dependency lock file
+!.terraform.lock.hcl
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local Astro environment
+.astro/
+
+# Environment variables and credentials
+.env
+.env.*
+credentials.txt
+**/credentials.txt
+
+# Terraform local files and secrets
+**/.terraform/
+*.tfvars
+*.tfvars.json
+*.tfstate
+*.tfstate.*
+*.tfplan
